@@ -20,9 +20,16 @@ var mainBowerFiles = require('main-bower-files');
 var wiredep = require('wiredep').stream;
 var livereload = require('gulp-livereload');
 
-var plugins = gulpLoadPlugins();
+var fs = require('fs');
+var config = JSON.parse(fs.readFileSync('./config.json'));
+var gutil = require('gulp-util');
 
-var LOCAL_OWA_FOLDER = "C:\\Users\\user\\openmrs\\conceptdictionary\\owa";
+var plugins = gulpLoadPlugins();
+/**
+*not sure what default folder should be
+*IMPORTANT: end your path in config.json with slash!
+*/
+var LOCAL_OWA_FOLDER = "dist";
 
 var THIS_APP_ID = 'conceptdictionary';
 
@@ -73,10 +80,12 @@ gulp.task('watch', function() {
 	  livereload.listen();
 	  gulp.watch('app/*', ['deploy-local']);
 });
-
+//slash deleted, because ubuntu and win use different slashes
 gulp.task('deploy-local', ['build'], function() {	
+  LOCAL_OWA_FOLDER = (config.paths.LOCAL_OWA_FOLDER);
   return gulp.src(['dist/**/*', '!*.zip'])
-    .pipe(gulp.dest(LOCAL_OWA_FOLDER + '\\' + THIS_APP_ID));
+    .pipe(gulp.dest(LOCAL_OWA_FOLDER+ THIS_APP_ID));
+
 });
 
 gulp.task('build', ['resources', 'html'], function() {
