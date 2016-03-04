@@ -1,4 +1,5 @@
 <div>
+<h2>Concept Class Management</h2>
 <form method="post" class="box">
 	<input type="submit" value="Add Concept Class" ng-click="">
 	<table>
@@ -8,10 +9,10 @@
 			<th> Description </th>
 		</tr>
 		
-			<tr ng-repeat="class in classObj.results"> 
+			<tr ng-repeat="class in classes.results"> 
 				<td valign="top"><input type="checkbox" name="conceptClassId" value="1"></td>
 				<td valign="top">
-					<a href="#/class-list/{{class.display}}">{{class.display}}</a>				
+					<a href="#/class-list/{{class.name}}">{{class.name}}</a>				
 				</td>
 				<td valign="top">{{class.description}}</td>
 			</tr>
