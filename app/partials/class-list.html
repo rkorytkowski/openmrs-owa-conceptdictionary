@@ -10,7 +10,7 @@
 		</tr>
 		
 			<tr ng-repeat="class in classes.results"> 
-				<td valign="top"><input type="checkbox" name="conceptClassId" value="1"></td>
+				<td valign="top"><input type="checkbox" name="conceptClassId" value="{{class.uuid}}"></td>
 				<td valign="top">
 					<a href="#/class-list/{{class.name}}">{{class.name}}</a>				
 				</td>
