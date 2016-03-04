@@ -8,6 +8,13 @@ conceptDictionary.config(['$routeProvider',
                           templateUrl: 'partials/class-list.html',
                           controller: 'ClassesListCtrl'
                         }).
+                        when('/class-list/addClass', {
+                        	templateUrl: 'partials/class-add.html'                      		
+                        }).
+                        when('/class-list/:className*', {
+                        	templateUrl: 'partials/class-edit.html',
+                        	controller: 'ClassesEditCtrl'                        		
+                        }).
                         otherwise({
                           redirectTo: '/class-list'
                         });
