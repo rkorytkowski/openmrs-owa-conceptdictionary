@@ -22,7 +22,7 @@ var livereload = require('gulp-livereload');
 
 var plugins = gulpLoadPlugins();
 
-var LOCAL_OWA_FOLDER = "C:\\Users\\user\\openmrs\\conceptdictionary\\owa";
+var LOCAL_OWA_FOLDER = "//home//user//openmrs//conceptdictionary//owa";
 
 var THIS_APP_ID = 'conceptdictionary';
 
@@ -76,7 +76,7 @@ gulp.task('watch', function() {
 
 gulp.task('deploy-local', ['build'], function() {	
   return gulp.src(['dist/**/*', '!*.zip'])
-    .pipe(gulp.dest(LOCAL_OWA_FOLDER + '\\' + THIS_APP_ID));
+    .pipe(gulp.dest(LOCAL_OWA_FOLDER + '/' + THIS_APP_ID));
 });
 
 gulp.task('build', ['resources', 'html'], function() {
