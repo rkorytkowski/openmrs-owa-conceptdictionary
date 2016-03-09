@@ -36,6 +36,15 @@ conceptDictionary.config(['$routeProvider',
                         	templateUrl: 'partials/datatype-details.html',
                         	controller: 'DataTypesDetailsCtrl',
                         }).
+                        when('/concept/:conceptUUID/', {
+                        	templateUrl: 'partials/concept.html',
+                        	controller: 'ConceptViewCtrl',
+                        	resolve: {
+                        		loadConcept : function($route, ConceptsService){
+                        			return ConceptsService.getConcept({uuid : $route.current.params.conceptUUID});
+                        		}
+                        	}
+                        }).
                         otherwise({
                           redirectTo: '/class-list'
                         });

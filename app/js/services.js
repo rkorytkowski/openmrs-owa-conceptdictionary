@@ -85,4 +85,56 @@ conceptDictServices
 			   return DataTypes.getDataType(uuid);
 		   }
 	   }
-}]);
+}])
+.factory('Concepts',['$resource', 'Util', function($resource, Util){
+   	return $resource(
+   			Util.getOpenmrsContextPath()+'/ws/rest/v1/concept/:uuid?:mode', {}, 
+   			//Returns single concept
+   				 {getConcept: {method: 'GET', params:{mode : 'v=full'}, isArray:false }});
+   			//deletes class with specified uuid
+}])
+.factory('ConceptsService',['Concepts', function(Concepts){
+   	return{
+   			//Returns single concept
+   		getConcept: function(uuid){
+   			return Concepts.getConcept(uuid);
+   		}}
+}])
+.factory('ConceptLocaleService',[function(){
+	return{
+		/**
+		 * @names array of names objects of concept
+		 * @locale string of locale abbreviation, e.g. "en"
+		 * @returns object, which holds full, short name and synonyms for specified locale
+		 */
+		getLocaleNames: function(names, locale){
+			//flags for types of locale prefered names
+			const shortFlag = "SHORT";
+			const fullFlag = "FULLY_SPECIFIED";
+			//holds full, short names and synonyms array
+			var localNames = {};
+			localNames.synonyms = [];
+			
+			for (let name of names){
+				if(name.locale == locale){
+					if(name.conceptNameType == shortFlag) localNames.short = name.display;
+					if(name.conceptNameType == fullFlag) localNames.full = name.display;
+					else localNames.synonyms.push(name.display);
+				}
+			}
+			return localNames;
+		},
+		/**
+		 * @descriptions array of descriptions objects of concept
+		 * @locale string of locale abbreviation
+		 * @returns string - description of concept for given locale
+		 */
+		getLocaleDescr: function(descriptions, locale){
+			for (let descr of descriptions){
+				if(descr.locale == locale){
+					return descr.display;
+				}
+			}
+		}
+	}
+}])

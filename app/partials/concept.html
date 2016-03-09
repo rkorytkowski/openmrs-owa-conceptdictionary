@@ -1,0 +1,158 @@
+<div>
+			<div style="padding-bottom: 8px;">
+					<button ng-click=''>New</button> | 
+					<button ng-click=''>Edit</button> 
+			</div>
+	<table id="conceptTable" cellpadding="2" cellspacing="0">
+		<tbody><tr>
+
+		</tr>
+		<tr>
+			<th title="System generated unique ID">UUID</th>
+			<td>{{concept.uuid}}</td>
+		</tr>
+		<tr>
+			<th title="The locale in which the concept name belongs ">Locale</th>
+			<td style="padding-bottom: 2px; padding-left: 2px;">
+				
+					<button ng-click='goLocale("en")'>English</button> | 
+					<button ng-click='goLocale("es")'>Spanish</button> |
+					<button ng-click='goLocale("fr")'>French</button> |
+					<button ng-click='goLocale("it")'>Italian</button> |
+					<button ng-click='goLocale("pt")'>Portugese</button>
+		</tr>
+		<tr class="localeSpecific">
+			<th title="The name to be used on forms, reports etc. in case no preferred name is set for the locale">
+				Display
+			</th>
+				<td>{{conceptLocale.names.full}}</td>
+		</tr>
+		<tr class="localeSpecific">
+			<th title="Any label or name that refers to a primary concept." valign="top">Synonyms</th>
+				<td>
+				
+					    <li class="synonym-repeat" ng-repeat="synonym in conceptLocale.names.synonyms" style="list-style-type:none">
+					    	{{synonym}}
+    					</li>
+				</td>
+				</td>
+		</tr>
+		<tr class="localeSpecific">
+			<th title="An index term or phrase that might be used to search for this concept but that is not valid for display purposes or storing in the record (e.g., common misspellings or pragmatic mapping term)" valign="top">Search Terms</th>
+				<td class="en">
+				</td>
+		</tr>
+		<tr class="localeSpecific">
+			<th title="The text shown in report headers and other places where space is limited">
+				Short Name
+			</th>
+				<td class="en">{{conceptLocale.names.short}}</td>
+		</tr>
+		
+		<tr class="localeSpecific">
+			<th title="Longer body of text used to fully describe this concept and how it is used." valign="top">
+				Description
+			</th>
+				<td valign="top">
+					{{conceptLocale.description}}
+				</td>
+			
+		</tr>
+		<tr>
+			<th title="The classification of the medical concept">
+				Class
+			</th>
+			<td valign="top">
+				{{concept.conceptClass.display}}
+			</td>
+		</tr>
+		
+		<tr>
+			<th title="If data is stored within this concept, this describes what it will look like">
+				Datatype
+			</th>
+			<td valign="top">
+				{{concept.datatype.display}}
+			</td>
+		</tr>
+		<tr ng-show = "isCoded" class="ng-hide">
+			<th valign="top">Answers</th>
+				<td>
+					    <li class="synonym-repeat" ng-repeat="answer in concept.answers" style="list-style-type:none">
+					    	<button ng-click="goToConcept(answer.uuid)">{{answer.display}}</button>
+    					</li>
+				</td>
+				</td>
+		</tr>
+		<tr>
+			<th title="An optional way for you to keep track of which concepts came before others when changing/updating concepts">Version</th>
+			<td>
+			</td>
+		</tr>
+		<tr ng-show = "isNumeric" class="ng-hide">
+				<th valign="top">Numeric </th>
+				<td>
+					<table>
+						<tbody>
+						<tr>
+							<th valign="middle">Absolute High</th>
+							<td valign="middle">{{concept.hiAbsolute}}</td>
+						</tr>
+						<tr>
+							<th valign="middle">Critical High</th>
+							<td valign="middle">{{concept.hiCritical}}</td>
+						</tr>
+						<tr>
+							<th valign="middle">Normal High</th>
+							<td valign="middle">{{concept.hiNormal}}</td>
+						</tr>
+						<tr>
+							<th valign="middle">Normal Low</th>
+							<td valign="middle">{{concept.lowNormal}}</td>
+						</tr>
+						<tr>
+							<th valign="middle">Critical Low</th>
+							<td valign="middle">{{concept.lowCritical}}</td>
+						</tr>
+						<tr>
+							<th valign="middle">Absolute Low</th>
+							<td valign="middle">{{concept.lowAbsolute}}</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td colspan="2"><small><em>(range values are inclusive)</em></small>
+							</td>
+						</tr>
+						<tr>
+							<th>Units</th>
+							<td colspan="2">{{concept.units}}</td>
+						</tr>
+						<tr>
+							<th>Allow Decimal?</th>
+							<td colspan="2">
+								{{concept.allowDecimal}}
+							</td>
+						</tr>
+						<tr>
+						
+						</tr>
+					</tbody></table>
+				</td>
+				</tr>
+			<tr>
+				<th valign="top">Created By</th>
+				<td>
+					{{concept.auditInfo.creator.display}} -
+					{{concept.auditInfo.dateCreated}}
+				</td>
+			</tr>
+			<tr>
+				<th valign="top">Changed By</th>
+				<td>
+					{{concept.auditInfo.creator.display}} -
+					{{concept.auditInfo.dateChanged}}
+				</td>
+			</tr>
+		<tr><td colspan="2"><br></td></tr>
+	</tbody></table>
+</div>
