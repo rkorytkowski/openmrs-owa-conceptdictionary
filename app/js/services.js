@@ -115,7 +115,7 @@ conceptDictServices
 			var localNames = {};
 			localNames.synonyms = [];
 			
-			for (let name of names){
+			for (var name of names){
 				if(name.locale == locale){
 					if(name.conceptNameType == shortFlag) localNames.short = name.display;
 					if(name.conceptNameType == fullFlag) localNames.full = name.display;
@@ -130,7 +130,7 @@ conceptDictServices
 		 * @returns string - description of concept for given locale
 		 */
 		getLocaleDescr: function(descriptions, locale){
-			for (let descr of descriptions){
+			for (var descr of descriptions){
 				if(descr.locale == locale){
 					return descr.display;
 				}
