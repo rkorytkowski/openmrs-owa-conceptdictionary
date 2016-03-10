@@ -110,8 +110,7 @@ conceptDictControllers.controller('DataTypesDetailsCtrl', ['$scope', 'DataTypesS
 }]);
 conceptDictControllers.controller('ConceptViewCtrl', ['$scope', 'loadConcept', '$q', '$location', 'ConceptLocaleService', 
                                                function($scope, loadConcept, $q, $location, ConceptLocaleService){
-	$scope.isNumeric = false;
-	$scope.isCoded = false;
+
 	//resolves promise of fetching concept from server
 	$q.all(loadConcept).then(function(response){
 		$scope.concept = loadConcept;
