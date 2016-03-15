@@ -6,7 +6,6 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-
 /**
  * Env
  * Get npm lifecycle event to identify the environment
@@ -158,7 +157,7 @@ module.exports = function makeWebpackConfig () {
         // Render index.html
         config.plugins.push(
             new HtmlWebpackPlugin({
-                template: './app/admin.html',
+                template: './app/index.html',
                 inject: 'body'
             }),
 

@@ -1,5 +1,5 @@
 export default angular
-    .module('conceptDictionaryApp')
+    .module('stuff')
     .controller('ConceptSearch', ['$scope', '$routeParams' ,'openmrsRest', function($scope, $routeParams, openmrsRest) {
 
         var vm = this;

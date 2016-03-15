@@ -1,5 +1,5 @@
 export default angular
-    .module('conceptDictionaryApp')
+    .module('stuff')
     .controller('ClassAdd', ['$location', 'openmrsRest',
     function($location, openmrsRest){
 

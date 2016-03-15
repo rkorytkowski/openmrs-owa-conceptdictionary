@@ -1,7 +1,8 @@
 export default angular
-    	.module('conceptDictionaryApp')
+    	.module('stuff', [])
     	.controller('ClassesEditController', ClassesEditController)
         .name;
+
     ClassesEditController.$inject =
     	['$scope', 'singleClass', '$routeParams', '$location', 'openmrsRest']
 
