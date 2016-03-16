@@ -1,11 +1,12 @@
 /**
  * The pattern borrowed from https://gist.github.com/brucecoddington/92a8d4b92478573d0f42
  */
+import ngResource from 'angular-resource'
 	
-angular
+	 export default angular
 		.module('openmrs', [ 'ngResource' ])
 		.factory('openmrsApi', openmrsApi)		
-		.provider('openmrsRest', openmrsRest);
+		.provider('openmrsRest', openmrsRest).name;
 
 		
 	function openmrsApi($resource){

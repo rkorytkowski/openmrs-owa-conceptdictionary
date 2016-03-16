@@ -1,11 +1,12 @@
-angular
-	.module('conceptDictionaryApp')
-	.controller('ClassesList', ClassesList);
-	    
-	ClassesList.$inject = 
+export default angular
+	.module('ConceptDictionaryApp.classesList', [])
+	.controller('ClassesListController', ClassesListController)
+	.name;
+
+	ClassesListController.$inject = 
 	    ['loadClasses', '$location', '$route', '$routeParams', 'openmrsRest']
 	
-	function ClassesList (loadClasses, $location, $route, $routeParams, openmrsRest) {
+	function ClassesListController (loadClasses, $location, $route, $routeParams, openmrsRest) {
 	
 		var vm = this;
 		//array of concept classes

@@ -21,7 +21,7 @@ describe('Concept dictionary controllers', function() {
 
     beforeEach(module('conceptDictionaryApp'));
 
-    describe('ClassAdd', function() {
+    describe('ClassAddController', function() {
         var scope, ctrl, $httpBackend, location;
 
         beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, _$location_) {
@@ -38,7 +38,7 @@ describe('Concept dictionary controllers', function() {
                 description:'Anatomic sites / descriptors'
             };
 
-            ctrl = $controller('ClassAdd', {$scope: scope, $location: _$location_});
+            ctrl = $controller('ClassAddController', {$scope: scope, $location: _$location_});
             ctrl.class = newClass;
         }));
 

@@ -1,7 +1,8 @@
-angular
-	.module('conceptDictionaryApp')
-	.factory('conceptLocaleService', conceptLocaleService);
-				
+export default angular
+	.module('ConceptDictionaryApp.conceptLocale', [])
+	.factory('conceptLocaleService', conceptLocaleService)
+	.name;
+
 
 		function conceptLocaleService(){
 					return{

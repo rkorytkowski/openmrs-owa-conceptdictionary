@@ -1,5 +1,5 @@
-angular
-    .module('conceptDictionaryApp')
+export default angular
+    .module('ConceptDictionaryApp.classAdd', [])
     .controller('ClassAdd', ['$location', 'openmrsRest',
     function($location, openmrsRest){
 
@@ -37,4 +37,5 @@ angular
             $location.path('/class-list').search({classAdded: ''});
         }
 
-    }]);
+    }])
+.name

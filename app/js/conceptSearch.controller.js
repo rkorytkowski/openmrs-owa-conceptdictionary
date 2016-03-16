@@ -1,6 +1,6 @@
-angular
-    .module('conceptDictionaryApp')
-    .controller('ConceptSearch', ['$scope', '$routeParams' ,'openmrsRest', function($scope, $routeParams, openmrsRest) {
+export default angular
+    .module('ConceptDictionaryApp.conceptSearch', [])
+    .controller('ConceptSearchController', ['$scope', '$routeParams' ,'openmrsRest', function($scope, $routeParams, openmrsRest) {
 
         var vm = this;
 
@@ -146,4 +146,5 @@ angular
             vm.updateResultNotification = updateResultNotification;
             vm.timeoutRefresh = timeoutRefresh;
         }
-    }]);
+    }])
+.name;
