@@ -4,30 +4,40 @@ import ngRoute from 'angular-route'
 import openmrsRest from './openmrs.js';
 
 import ClassesEditController from './classesEdit.controller.js';
-import ClassAdd from './classAdd.controller.js';
-import ClassesList from './classesList.controller.js';
+import ClassAddController from './classAdd.controller.js';
+import ClassesListController from './classesList.controller.js';
 import ConceptAddController from './conceptAdd.controller.js';
-import ConceptSearch from './conceptSearch.controller.js';
-import ConceptView from './conceptView.controller.js';
+import ConceptSearchController from './conceptSearch.controller.js';
+import ConceptViewController from './conceptView.controller.js';
 import DataTypesDetailsController from './dataTypesDetails.controller.js';
-import DataTypesList from './dataTypesList.controller.js';
+import DataTypesListController from './dataTypesList.controller.js';
+
 import conceptLocaleService from './conceptLocale.service.js'
 
 export default angular
     .module('conceptDictionaryApp',
-		['ngRoute', 'openmrs', 'stuff'])
+		['ngRoute', 'openmrs', 
+		 'ConceptDictionaryApp.classesEdit',
+		 'ConceptDictionaryApp.classAdd',
+		 'ConceptDictionaryApp.classesList',
+		 'ConceptDictionaryApp.conceptAdd',
+		 'ConceptDictionaryApp.conceptSearch',
+		 'ConceptDictionaryApp.conceptView',
+		 'ConceptDictionaryApp.dataTypesDetails',
+		 'ConceptDictionaryApp.dataTypesList',
+		 'ConceptDictionaryApp.conceptLocale'])
 
 	.config(['$routeProvider',
                     function($routeProvider, openmrsRest) {
                       $routeProvider.
                         when('/concept-search', {
                             templateUrl: 'partials/concept-search.html',
-                            controller: 'ConceptSearch',
+                            controller: 'ConceptSearchController',
                             controllerAs: 'vm'
                       }).
                         when('/class-list', {
                           templateUrl: 'partials/class-list.html',
-                          controller: 'ClassesList',
+                          controller: 'ClassesListController',
                           controllerAs: 'vm',
                           resolve: {
                         	  loadClasses : loadClasses
@@ -35,7 +45,7 @@ export default angular
                         }).
                         when('/class-list/add-class', {
                         	templateUrl: 'partials/class-add.html',
-                            controller: 'ClassAdd',
+                            controller: 'ClassAddController',
                             controllerAs: 'vm'
                       }).
                         when('/class-list/:classUUID', {
@@ -74,7 +84,7 @@ export default angular
                         }).
                         when('/concept/:conceptUUID/', {
                         	templateUrl: 'partials/concept.html',
-                        	controller: 'ConceptView',
+                        	controller: 'ConceptViewController',
                         	controllerAs: 'vm',
                         	resolve: {
                         		concept : loadConcept,

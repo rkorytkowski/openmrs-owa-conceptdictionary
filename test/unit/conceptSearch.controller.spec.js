@@ -21,7 +21,7 @@ describe('Concept dictionary controllers', function() {
 
     beforeEach(module('conceptDictionaryApp'));
 
-    describe('ConceptSearch', function() {
+    describe('ConceptSearchController', function() {
         var scope, ctrl, $httpBackend;
 
         beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, openmrsRest) {
@@ -72,7 +72,7 @@ describe('Concept dictionary controllers', function() {
 
             scope = $rootScope.$new();
 
-            ctrl = $controller('ConceptSearch', {$scope: scope, $location: location});
+            ctrl = $controller('ConceptSearchController', {$scope: scope, $location: location});
 
         }));
 

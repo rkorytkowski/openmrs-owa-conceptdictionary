@@ -1,5 +1,5 @@
 export default angular
-    	.module('stuff', [])
+    	.module('ConceptDictionaryApp.classesEdit', [])
     	.controller('ClassesEditController', ClassesEditController)
         .name;
 

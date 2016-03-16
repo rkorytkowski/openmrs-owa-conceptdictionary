@@ -1,5 +1,5 @@
 export default angular
-	.module('stuff')
+	.module('ConceptDictionaryApp.conceptAdd', [])
 	.controller('ConceptAddController', ConceptAddController)
 	.name;
 		

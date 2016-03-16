@@ -21,7 +21,7 @@ describe('Concept dictionary controllers', function() {
 
     beforeEach(module('conceptDictionaryApp'));
 
-    describe('ClassesList', function(){
+    describe('ClassesListController', function(){
         var ctrl, $httpBackend, loadClasses;
 
         beforeEach(inject(function(_$httpBackend_, $controller, openmrsRest, _$route_ ,_$location_, _$routeParams_) {
@@ -33,7 +33,7 @@ describe('Concept dictionary controllers', function() {
             
             openmrsRest.listFull('conceptclass').then(function(response){
                 loadClasses = response;
-                ctrl = $controller('ClassesList', {loadClasses: loadClasses, 
+                ctrl = $controller('ClassesListController', {loadClasses: loadClasses, 
                 									$location: _$location_, 
                 									openmrsRest : openmrsRest,
                 									$route : _$route_,

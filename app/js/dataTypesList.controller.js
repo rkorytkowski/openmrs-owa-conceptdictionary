@@ -1,5 +1,5 @@
 export default angular
-	.module('stuff')
+	.module('ConceptDictionaryApp.dataTypesList', [])
 	.controller('DataTypesListController', DataTypesListController)
 	.name;
 	
