@@ -157,7 +157,7 @@ module.exports = function makeWebpackConfig () {
         // Render index.html
         config.plugins.push(
             new HtmlWebpackPlugin({
-                template: './app/index.html',
+                template: './app/admin.html',
                 inject: 'body'
             }),
 
