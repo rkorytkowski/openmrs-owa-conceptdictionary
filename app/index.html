@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Concept Dictionary</title>
+<html ng-app="conceptDictionaryApp">
+<head>
+    <title>Concept Dictionary Management</title>
     <!-- openmrs favicon -->
     <link rel="shortcut icon" type="image/ico" href="../../images/openmrs-favicon.ico"/>
     <link rel="icon" type="image/png" href="../../images/openmrs-favicon.png"/>
+
+    <link rel="stylesheet" href="css/conceptdictionary.css" type="text/css"/>
     <!-- bower:css -->
     <!-- endbower -->
     <!-- owa styles -->
-    <link rel="stylesheet" href="css/conceptdictionary.css" type="text/css"/>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-          <a href="../../">
-              <img src="img/openmrs-with-title-small.png"/>
-          </a>
-      </div>
-      <span class="app-title">Concept Dictionary</span>
-    </header>
-    <div class="clear"></div>
-    <div id="body-wrapper">
-      <div class="instructions">Replace this with the content of your app.</div>
+    <link rel="stylesheet" href="../uicommons/css/openmrs-refapp.css" type="text/css"/>
+
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="../../">
+            <img src="img/openmrs-with-title-small.png"/>
+        </a>
     </div>
-    <!-- bower:js -->
-    <!-- endbower -->
-    <!-- owa scripts -->
-    <script src="js/conceptdictionary.js"></script>
-  </body>
+    <span class="app-title">Concept Dictionary</span>
+</header>
+<div ng-view></div>
+
+
+<!-- bower:js -->
+<!-- endbower -->
+<!-- owa scripts -->
+<script src="js/conceptDictionaryApp.module.js"></script>
+<script src="js/classesList.controller.js"></script>
+<script src="js/sourceList.controller.js"></script>
+<script src="js/conceptStopWordList.controller.js"></script>
+<script src="js/conceptStopWordAdd.controller.js"></script>
+<script src="js/classAdd.controller.js"></script>
+<script src="js/classesEdit.controller.js"></script>
+<script src="js/sourceEdit.controller.js"></script>
+<script src="js/conceptSearch.controller.js"></script>
+<script src="js/referenceSearch.controller.js"></script>
+<script src="js/referenceEdit.controller.js"></script>
+<script src="js/referenceAdd.controller.js"></script>
+<script src="js/sourceAdd.controller.js"></script>
+<script src="js/conceptView.controller.js"></script>
+<script src="js/conceptAdd.controller.js"></script>
+<script src="js/dataTypesDetails.controller.js"></script>
+<script src="js/dataTypesList.controller.js"></script>
+<script src="js/conceptLocale.service.js"></script>
+<script src="js/openmrs.js"></script>
+</body>
 </html>
