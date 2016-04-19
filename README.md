@@ -77,24 +77,19 @@ Once it says "Started Jetty Server", visit http://localhost:8080/openmrs in your
 
 You will need NodeJS 4+ installed to do this. See the install instructions [here](https://nodejs.org/en/download/package-manager/).
 
-Once you have NodeJS installed, you need to install Gulp and Bower (first time only) as follows:
-````sh
-npm install -g gulp bower
-````
-
-Install the dependencies (first time only):
+Once you have NodeJS installed, install the dependencies (first time only):
 
 ```sh
-npm install && bower install
+npm install
 ```
 
-Build the distributable using [Gulp](http://gulpjs.com/) as follows:
+Build the distributable using [Webpack](https://webpack.github.io/) as follows:
 
 ````sh
-gulp
+npm run build
 ````
 
-This will create a file called `conceptdictionary.zip` file in the `dist` directory, which can be uploaded to the OpenMRS Open Web Apps module.
+This will create a `dist` directory, which content can be uploaded to the OpenMRS Open Web Apps module.
 
 ### Releasing
 
@@ -111,10 +106,10 @@ Finally set the property version in bintray.json and package.json to the next de
 To deploy directly to your local Open Web Apps directory, run:
 
 ````sh
-gulp deploy-local
+npm run build:deploy
 ````
 
-This will build and deploy the app to the `C:\Users\Rafal\openmrs\conceptdictionary` directory. To change the deploy directory, edit the `LOCAL_OWA_FOLDER` value in `config.json`. You can find your deploy directory running:
+This will build and deploy the app to directory specified in `LOCAL_OWA_FOLDER` value in `./config.json`, created by dev. If `config.json` is absent, app will be deployed to `/dist` directory. You can find your deploy directory running:
 
 ````sh
  mvn openmrs-sdk:run -DserverId=conceptdictionary
@@ -139,7 +134,7 @@ browser is refreshed. First please make sure the APP_ENTRY_POINT is set in confi
 
 Next run:
 ````sh
-gulp watch
+npm run watch
 ````
 
 While it runs, it watches all files for changes and automatically updates your browser.
@@ -160,19 +155,20 @@ You will also need to change the url to point to your fork in deploy.sh line 27 
 
 ### Extending
 
-Install [Bower](http://bower.io/) packages dependencies as follows:
+Install [npm](http://npmjs.com/) packages dependencies as follows:
 
 ````sh
-bower install --save <package>
+npm install --save <package>
 ````
 
-Be sure to include the following in your `html` files at the position you want the Bower dependencies injected:
+Be sure to include the loading statement in your `.js` files at the modules you want your dependencies injected:
 
-````html
-<!-- bower:js -->
-<!-- endbower -->
+````js
+//import module
+require('package')
+//import and assign to variable
+import variableName from 'package';
 ````
-Do the same for your Bower stylesheet dependencies, but replace `js` with `css`.
 
 Any files that you add manually must be added in the `app` directory.
 

@@ -24,6 +24,8 @@ var configJson;
 let appEntryPoint;
 let localOwaFolder;
 
+let devtool;
+
 try{
 	configJson = require('./config.json');
 	appEntryPoint = configJson.APP_ENTRY_POINT;
@@ -63,10 +65,12 @@ if (env === 'production') {
     }
   }));
   outputFile = `${outputFile}.min.js`;
-  outputPath = `${__dirname}/dist/`
+  outputPath = `${__dirname}/dist/`;
+  devtool = 'source-map';
 } else if (env === 'dev') {
   outputFile = `${outputFile}.js`;
   outputPath = `${localOwaFolder}${appName}`;
+  devtool = 'eval-source-map';
 }
 
 plugins.push(new BrowserSyncPlugin({
@@ -88,16 +92,14 @@ var config = {
   entry: {
 	  app : `${__dirname}/app/components/conceptDictionaryApp.module.js`,
 	  vendor : [
-		            'angular', 
-		            'angular-resource',
+		            'angular',
 		            'angular-translate',
-		            'angular-route', 
-		            'angular-strap',
+		            'angular-route',
 		            'angular-translate-loader-static-files',
 		            'openmrs-contrib-uicommons' 
 	            ]
   },
-  devtool: 'source-map',
+  devtool: devtool,
   target,
   output: {
     path: outputPath,
@@ -109,7 +111,8 @@ var config = {
 	    loader: 'babel-loader',
 	    exclude: /node_modules/,
 	    query: {
-	        presets: ['es2015']
+	        presets: ['es2015'],
+	        cacheDirectory : true
     }
     },{
 	    test: /\.css$/,
