@@ -106,7 +106,7 @@ Finally set the property version in bintray.json and package.json to the next de
 To deploy directly to your local Open Web Apps directory, run:
 
 ````sh
-npm run build:dev
+npm run build:deploy
 ````
 
 This will build and deploy the app to directory specified in `LOCAL_OWA_FOLDER` value in `./config.json`, created by dev. If `config.json` is absent, app will be deployed to `/dist` directory. You can find your deploy directory running:
@@ -134,7 +134,7 @@ browser is refreshed. First please make sure the APP_ENTRY_POINT is set in confi
 
 Next run:
 ````sh
-npm run build:dev:watch
+npm run watch
 ````
 
 While it runs, it watches all files for changes and automatically updates your browser.
