@@ -10,9 +10,7 @@
     "modernizr": "3.3.1",
     "angular": "1.5.x",
     "angular-route": "1.5.x",
-    "angular-resource": "1.5.x",
-    "angular-strap": "2.3.x",
-    "openmrs-contrib-uicommons": "^0.3.9"
+    "openmrs-contrib-uicommons": "^0.3.11"
   },
   "devDependencies": {
     "angular-mocks": "1.5.x",
@@ -67,8 +65,8 @@
     "build": "webpack --progress --colors --mode=production --target=web",
     "build:prod": "npm run clean && npm run test && webpack --progress --colors  --mode=production --target=web",
     "build:travis": "npm run build:prod && npm run zip",
-    "build:dev": "npm run clean && webpack --progress --colors --mode=dev --target=web",
-    "build:dev:watch": "npm run clean && webpack --progress --colors --watch --mode=dev --target=web",
+    "build:deploy": "npm run clean && webpack --progress --colors --mode=dev --target=web",
+    "watch": "npm run clean && webpack --progress --colors --watch --mode=dev --target=web",
     "test": "karma start --singleRun=true",
     "test:debug": "karma start",
     "zip": "cd dist && zip -r conceptdictionary *",

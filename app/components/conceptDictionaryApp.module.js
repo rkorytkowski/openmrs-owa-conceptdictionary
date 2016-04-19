@@ -9,8 +9,6 @@
  */
 import angular from 'angular';
 import ngRoute from 'angular-route';
-import angularStrap from 'angular-strap';
-
 import translateApp from './translateApp.module.js';
 import openmrsContribUiCommons from 'openmrs-contrib-uicommons';
 
@@ -38,14 +36,10 @@ import conceptTableComponent from './conceptTable/conceptTable.component.js';
 import conceptUniqueNameComponent from './conceptUniqueName/conceptUniqueName.component.js';
 import deleteAlertComponent from './deleteAlert/deleteAlert.component.js';
 
-
-import conceptDictionaryAppConfig from './conceptDictionaryApp.config.js';
-
 export default angular
     .module('conceptDictionaryApp',
 		['translateApp',
-		 'ngRoute',
-		 'mgcrea.ngStrap.typeahead', 
+		 'ngRoute', 
 		 'openmrs-contrib-uicommons'])
 		 
 	.factory('conceptsService', ConceptsService)	
