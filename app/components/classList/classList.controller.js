@@ -39,10 +39,6 @@ export default function ClassListController ($routeParams) {
         {
             "action":"unretire",
             "label":"unretire"
-        },
-        {
-            "action":"purge",
-            "label":"Delete"
         }
     ];
 
