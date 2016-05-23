@@ -69,9 +69,7 @@ if (env === 'production') {
     },
     minimize: true,
     sourceMap: false,
-    compress: {
-        warnings: false
-    }
+    compress: false
   }));
   plugins.push(new DedupePlugin());
   outputFile = `${outputFile}.min.[chunkhash].js`;
@@ -156,16 +154,7 @@ var config = {
 	},{
 	    test: /\.html$/,
 	    loader: 'raw'
-	}, {
-        test: /\.scss$/,
-        loader: "style!css!sass?outputStyle=expanded&includePaths[]=" 
-        		+ path.resolve(__dirname, "./node_modules/compass-mixins/lib")
-      },
-        {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url'},
-        {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: 'url'},
-        {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url'},
-        {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url'},
-        {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'url'},],
+	}],
   },
   resolve: {
     root: path.resolve('./src'),
