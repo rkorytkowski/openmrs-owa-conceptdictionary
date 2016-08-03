@@ -41,6 +41,9 @@ export default function ConceptSearchController($scope, $routeParams, openmrsRes
             "action":"view",
             "label":"View",
             "link" : "#/concept/{uuid}"
+        },
+        {
+            "action":"retire"
         }
     ];
 }
