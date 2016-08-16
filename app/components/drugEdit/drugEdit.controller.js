@@ -123,7 +123,7 @@ export default function DrugEditController($location, openmrsRest, loadDrug, ope
 		  route: vm.drug.route.uuid,
 		  retired: vm.drug.retired,
 		  uuid: vm.drug.uuid
-		}
+		};
 		openmrsRest.update('drug', vm.Drug).then(handleSuccess, handleException);
 	}
 	
@@ -138,7 +138,7 @@ export default function DrugEditController($location, openmrsRest, loadDrug, ope
     }
 
 	/**
-	 * Logic for delete-alert component
+	 * Logic for openmrs-alert-dialog component
 	 */
 	vm.deleteForever = deleteForever;
 	vm.showAlert = showAlert;
@@ -151,6 +151,7 @@ export default function DrugEditController($location, openmrsRest, loadDrug, ope
 		$location.path('/drug').search({successToast: vm.drug.name+" has been deleted"});
 	}
 	function showAlert() {
+		vm.message = "Are you sure that you want to delete " + vm.drug.name + " forever?";
 		vm.deleteClicked = true;
 	}
 	function updateDeleteConfirmation(isConfirmed) {

@@ -64,7 +64,7 @@ export default function ClassEditController( singleClass, $routeParams, $locatio
     }
 
     /**
-     * Logic for delete-alert component
+     * Logic for openmrs-alert-dialog component
      */
     vm.deleteForever = deleteForever;
     vm.showAlert = showAlert;
@@ -77,6 +77,7 @@ export default function ClassEditController( singleClass, $routeParams, $locatio
         $location.path('/class').search({successToast: vm.singleClass.name+" has been deleted"});
     }
     function showAlert() {
+        vm.message = "Are you sure that you want to delete " + vm.singleClass.name + " forever?";
         vm.deleteClicked = true;
     }
     function updateDeleteConfirmation(isConfirmed) {

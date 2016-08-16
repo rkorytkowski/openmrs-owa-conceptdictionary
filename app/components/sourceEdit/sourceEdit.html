@@ -2,7 +2,7 @@
 <div id="body-wrapper">
 	<label id="content" class="container">
 		<h1><i class="icon-pencil"></i>&#160;Edit Concept Source</h1>
-		<delete-alert ng-show="vm.deleteClicked" on-update="vm.updateDeleteConfirmation(isConfirmed)"></delete-alert>
+		<openmrs-alert-dialog ng-show="vm.deleteClicked"  on-update="vm.updateDeleteConfirmation(isConfirmed)" message="vm.message"></openmrs-alert-dialog>
 		<form ng-show="!vm.deleteClicked" name="sourceEdit">
 
 			<div align="center">
@@ -40,7 +40,7 @@
 									{{vm.source.auditInfo.changedBy.display}} -
 									{{vm.source.auditInfo.dateChanged|date:'medium'}}
 								</small>
-							</label>
+							</label>-
 						</div>
 
 						<div>

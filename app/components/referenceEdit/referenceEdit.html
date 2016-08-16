@@ -2,7 +2,7 @@
 <div id="body-wrapper">
     <div id="content" class="container">
         <h1><i class="icon-pencil"></i>&#160;Edit Reference Term</h1>
-        <delete-alert ng-show="vm.deleteClicked" on-update="vm.updateDeleteConfirmation(isConfirmed)"></delete-alert>
+        <openmrs-alert-dialog ng-show="vm.deleteClicked"  on-update="vm.updateDeleteConfirmation(isConfirmed)" message="vm.message"></openmrs-alert-dialog>
         <form method="post" ng-show="!vm.deleteClicked" name="referenceEdit">
             <div class="info-body" align="center">
                 <fieldset style="width: 90%;">

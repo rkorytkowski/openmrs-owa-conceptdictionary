@@ -58,7 +58,7 @@ export default function ReferenceEditController (reference, sources, openmrsRest
     
 
     /**
-     * Logic for delete-alert component
+     * Logic for openmrs-alert-dialog component
      */
 
     vm.deleteForever = deleteForever;
@@ -73,6 +73,7 @@ export default function ReferenceEditController (reference, sources, openmrsRest
         	handleException);
     }
     function showAlert(item) {
+        vm.message = "Are you sure that you want to delete " + vm.reference.code + " forever?";
         vm.deleteClicked = true;
     }
     function updateDeleteConfirmation(isConfirmed) {

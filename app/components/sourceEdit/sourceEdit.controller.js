@@ -56,7 +56,7 @@ export default function SourceEditController (sources ,openmrsRest, $location, o
     
     
     /**
-     * Logic for delete-alert component
+     * Logic for openmrs-alert-dialog component
      */
     vm.deleteClicked = false;
     function deleteForever() {
@@ -65,6 +65,7 @@ export default function SourceEditController (sources ,openmrsRest, $location, o
             	handleException);
     }
     function showAlert(item) {
+        vm.message = "Are you sure that you want to delete " + vm.source.name + " forever?";
         vm.deleteClicked = true;
     }
     function updateDeleteConfirmation(isConfirmed) {
