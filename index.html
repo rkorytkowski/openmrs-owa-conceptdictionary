@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="conceptDictionaryApp" ng-strict-di ng-cloak>
+<head>
+    <title>Concept Dictionary Management</title>
+    <!-- openmrs favicon -->
+    <link rel="shortcut icon" type="image/ico" href="../../images/openmrs-favicon.ico"/>
+    <link rel="icon" type="image/png" href="../../images/openmrs-favicon.png"/>
+    <link rel="stylesheet" href="../uicommons/css/openmrs-refapp.css" type="text/css"/>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+<script type="text/javascript" src="vendor.bundle.6ecb0a60b2cc280883d4.js"></script><script type="text/javascript" src="app.bundle.min.4da6a5ee78c489e40bf3.js"></script></head>
+<header>
+  	<div ng-controller="IndexController as vm">
+		<openmrs-header></openmrs-header>
+	</div>
+</header>
+<body>
+<div ng-view></div>
+
+<div ng-controller="IndexController as vm">
+    <small>
+        Choose language:
+        <a ng-click="vm.changeLanguage('en')">English</a>,
+        <a ng-click="vm.changeLanguage('es')">Spanish</a>
+    </small>
+</div>
+</body>
+</html>

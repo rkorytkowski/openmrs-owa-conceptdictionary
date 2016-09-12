@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "name": "Concept Dictionary",
+  "description": "Lets you search/view/edit concepts, mappings and related metadata",
+  "launch_path": "index.html",
+  "icons": {
+    "48": "/img/omrs-button.png"
+  },
+  "developer": {
+    "name": "rkorytkowski",
+    "url": "https://github.com/rkorytkowski/openmrs-owa-conceptdictionary"
+  },
+  "default_locale": "en",
+    "activities": {
+      "openmrs": {
+        "href": "*",
+        "testConfig": {
+	  		"href":"http://devtest04.openmrs.org:8080/openmrs"
+		}
+      }
+    }
+}
