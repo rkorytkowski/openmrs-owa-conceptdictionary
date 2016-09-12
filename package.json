@@ -1,6 +1,6 @@
 {
   "name": "openmrs-owa-conceptdictionary",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lets you search/view/edit concepts, mappings and related metadata",
   "repository": {
     "type": "git",
